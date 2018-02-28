@@ -1,94 +1,89 @@
+<!-- Shows as homepage -->
 <html>
-<!-- Shows as home -->
-<h1>Welcome to Whenisbest!!</h1>
+  <head>
+    <h1>Welcome to Whenisbest!!</h1>
+  </head>
 
-<li><%= link_to "Add Event", new_event_path %> </li>
+  <body>
+    <!-- All events are listed here -->
 
-<h3>These are the events submitted so far</h3>
+    <li><%= link_to "Add Event", new_event_path %> </li>
 
-<% @events.each do |event|%>
-  <h3>
-    <%= link_to event.title, edit_event_path(event) %>
-  </h3>
-  <p>
-    <%=event.start_time%>
-    <%=event.end_time%>
-  </p>
-<%end%>
+    <h3>These are the events submitted so far</h3>
+
+    <% @events.each do |event|%>
+      <h3>
+        <%= link_to event.title, edit_event_path(event) %>
+      </h3>
+      <p>
+        <%=event.start_time%>
+        <%=event.end_time%>
+      </p>
+    <%end%>
 
 
-    <head>
-        <title> Calendar </title>
-    </head>
+      <!-- Calendar starts here -->
 
-    <body>
-        <div style = "width: 100%; height:100%">
-            <div style ="background-color: rgb(0, 162, 232); width:100%; height: 100%">
-                <button class="button"><</button>
-                <button class="button">></button>
-                <div class="wrapper">
-                    <form name = "Time">
-                        <select id = "dateTime" name = "Timetable">
-                            <option value = "1" selected>Week</option>
-                            <option value = "2">Day</option>
-                            <option value = "3">Month</option>
-                            <option value = "4">Year</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <% if @value == "Week"%>
-                <table class ="table">
-                    <% count = 1 %>
-                    <% for i in 0..6 do %>
-                        <tr>
-                        <% for j in 0..4 do %>
-                            <% if count <=28 %>
-                                <td>
-                                    <%= count %>
-                                </td>
-                            <% end %>
-                            <% count +=1 %>
-                        <% end %>
-                        </tr>
-                    <% end %>
-                </table>
-                <% else %>
-                <table class ="table">
-                    <% days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] %>
-                    <%time_temp = ["12:00 am", "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"]%>
-                    <% for i in 0..25 do %>
-                        <tr>
-                        <% for j in 0..7 do %>
-
-                            <%if i > 1 and j != 0%>
-                                    <td class= "popup" onclick="myFunction()" >
-                                        <span class = "popuptext" id="myPopup">Testing </span>
-                                    </td>
-                            <% elsif i==0  and j!=0%>
-                            <td class = "regular"> <%=days[j-1] %></td>
-                            <% elsif j==0 and i > 1%>
-                            <td class = "regular"> <%=time_temp[i-2]%></td>
-                            <% else %>
-                            <td class = "regular"></td>
-                            <% end %>
-
-                        <% end %>
-                        </tr>
-                    <% end %>
-                </table>
-                <% end %>
-                <!--<% for i in 0..5 do %>
-                <p>The value is <%= i %> </p>
-                <% end %>-->
-            </div>
+      <div style = "width: 100%; height:100%">
+        <div style ="background-color: rgb(0, 162, 232); width:100%; height: 100%">
+          <button class="button"><</button>
+          <button class="button">></button>
+          <div class="wrapper">
+            <form name = "Time">
+              <select id = "dateTime" name = "Timetable">
+                <option value = "1" selected>Week</option>
+                <option value = "2">Day</option>
+                <option value = "3">Month</option>
+                <option value = "4">Year</option>
+              </select>
+            </form>
+          </div>
         </div>
-        <script>
+
+        <div>
+          <table class ="table">
+            <% for i in 0..24 do %>
+              <tr>
+              <% for j in 0..7 do %>
+
+                <!-- this allow clicking for corresponding cell -->
+                <%if i > 1 and j != 0 %>
+                  <td class= "popup" onclick="myFunction()">
+                    <span class = "popuptext" id="myPopup"> Testing </span>
+                  </td>
+
+                <!-- print out day -->
+                <% elsif i==0  and j!=0 %>
+                  <td class = "regular">
+                    <%= @days[j-1] %>
+                  </td>
+
+                <!-- print out time -->
+                <% elsif j==0 and i >0 %>
+                  <td class = "regular">
+                    <%= @times[i-1]%>
+                  </td>
+
+                <!-- print out empty cell -->
+                <% else %>
+                  <td class = "regular"></td>
+                <% end %>
+
+              <% end %>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+
+
+      <script>
             function myFunction() {
                 var popup = document.getElementById("myPopup");
                 popup.classList.toggle("show");
             }
-        </script>
-    </body>
+      </script>
+
+
+  </body>
 </html>
