@@ -1,0 +1,32 @@
+<!-- Shows in events/new -->
+<h1>Add Event</h1>
+<%= form_for :event, url: events_path do |f| %>
+  <p>
+    <%=f.label :title%>
+    <%=f.text_field :title%>
+  </p>
+
+  <p>
+    <%=f.label :start_time%>
+    <%=f.text_field :start_time%>
+  </p>
+
+  <p>
+    <%=f.label :start_meridian%>
+    <%=f.text_field :start_meridian%>
+  </p>
+
+  <p>
+    <%=f.label :end_time%>
+    <%=f.text_field :end_time%>
+  </p>
+
+  <p>
+    <%=f.label :end_meridian%>
+    <%=f.text_field :end_meridian%>
+  </p>
+
+  <p>
+    <%=f.submit%>
+  </p>
+<%end%>

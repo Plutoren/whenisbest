@@ -1,0 +1,19 @@
+Variables:
+- All events are in @events
+- Time is stored in  @times
+- Days are stored in @days
+- <% @events.each do |event|%> will assign each event as event.
+  We can acess each vairable such as event.varialbe_name from here
+  (ex. event.start_time or event.title)
+
+  Specifications for data types:
+  - title, start_meridian, end_meridian : string
+  - start_time, end_time : datetime => check SQL dataypes
+
+Jobs:
+- Fill up events on the calendar.
+- dates should be varied corresponding to week.
+- Don't worry about having two events at the same time for now. Don't worry about
+  corner cases.
+
+- We want these two objectives to be accomplished by 3/2.
