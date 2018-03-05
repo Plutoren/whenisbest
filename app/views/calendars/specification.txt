@@ -3,7 +3,7 @@ Variables:
 - Time is stored in  @times
 - Days are stored in @days
 - <% @events.each do |event|%> will assign each event as event.
-  We can acess each vairable such as event.varialbe_name from here
+  We can access each variable such as event.varialbe_name from here
   (ex. event.start_time or event.title)
 
   Specifications for data types:
