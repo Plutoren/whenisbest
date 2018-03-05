@@ -1,13 +1,21 @@
 <!-- Shows as homepage -->
 <html>
   <head>
-    <h1>Welcome to Whenisbest!!</h1>
+    <h1>Welcome to Whenisbest!</h1>
   </head>
 
   <body>
     <!-- All events are listed here -->
 
     <li><%= link_to "Add Event", new_event_path %> </li>
+
+    <h3> Current Time </h3>
+
+    <%= date_today = Date.today %>
+    <%= day_today = Date.today.strftime('%A').to_s %>
+
+    <%= start_week = date_today.at_beginning_of_week %>
+    <%= end_week = date_today.at_end_of_week %>
 
     <h3>These are the events submitted so far</h3>
 
@@ -46,16 +54,11 @@
               <tr>
               <% for j in 0..7 do %>
 
-                <!-- this allow clicking for corresponding cell -->
-                <%if i > 1 and j != 0 %>
-                  <td class= "popup" onclick="myFunction()">
-                    <span class = "popuptext" id="myPopup"> Testing </span>
-                  </td>
-
                 <!-- print out day -->
-                <% elsif i==0  and j!=0 %>
+                <% if i==0  and j!=0 %>
                   <td class = "regular">
-                    <%= @days[j-1] %>
+                    <%= @days[j-1] %> <br>
+                    <%= start_week + j.days %>
                   </td>
 
                 <!-- print out time -->
@@ -66,7 +69,26 @@
 
                 <!-- print out empty cell -->
                 <% else %>
-                  <td class = "regular"></td>
+                  <% found_events = [] %>
+                  <% @events.each do |event| %>
+                    <!-- First event in the events list is Nil -->
+                    <!-- We should fix this -->
+                    <% next if event.start_time.class == NilClass %>
+                    <% if  check_time(start_week+j.days, i-1, event) %>
+                      <% found_events.push(event) %>
+                    <% end %>
+                  <% end %>
+                  <% if found_events.length != 0 %>
+                    <td class = "fill">
+                      <!-- Print out all the found events -->
+                      <% found_events.each do |found_event| %>
+                        <%= link_to found_event.title, edit_event_path(found_event) %>
+                      <% end %>
+                    </td>
+                  <% else %>
+                    <!-- This is when no events are found in this cell -->
+                    <td class = "regular"></td>
+                  <% end %>
                 <% end %>
 
               <% end %>
