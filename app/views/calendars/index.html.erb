@@ -74,7 +74,7 @@
                     <!-- First event in the events list is Nil -->
                     <!-- We should fix this -->
                     <% next if event.start_time.class == NilClass %>
-                    <% if  check_time(start_week+j.days, i-1, event) %>
+                    <% if  check_time(start_week+(j-1).days, i-1, event) %>
                       <% found_events.push(event) %>
                     <% end %>
                   <% end %>
