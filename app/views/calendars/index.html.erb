@@ -8,6 +8,9 @@
     <!-- All events are listed here -->
 
     <li><%= link_to "Add Event", new_event_path %> </li>
+	
+	
+    <li><%= link_to "Add Week", calendars.addweek %> </li>
 
     <h3> Current Time </h3>
 
@@ -39,8 +42,8 @@
           <div class="wrapper">
             <form name = "Time">
               <select id = "dateTime" name = "Timetable">
-                <option value = "1">Week</option>
-                <option value = "2" selected>Day</option>
+                <option value = "1" selected>Week</option>
+                <option value = "2">Day</option>
                 <option value = "3">Month</option>
                 <option value = "4">Year</option>
               </select>
