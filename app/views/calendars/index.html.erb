@@ -11,7 +11,7 @@
 
     <h3> Current Time </h3>
 
-    <%= date_today = Date.today %>
+    <%= date_today = Date.today  + (@week * 7)%>
     <%= day_today = Date.today.strftime('%A').to_s %>
 
     <%= start_week = date_today.at_beginning_of_week %>
@@ -39,8 +39,8 @@
           <div class="wrapper">
             <form name = "Time">
               <select id = "dateTime" name = "Timetable">
-                <option value = "1" selected>Week</option>
-                <option value = "2">Day</option>
+                <option value = "1">Week</option>
+                <option value = "2" selected>Day</option>
                 <option value = "3">Month</option>
                 <option value = "4">Year</option>
               </select>

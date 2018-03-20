@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 
     redirect_to :controller => 'calendars', action: 'index'
   end
+  
 
   # this function takes requirements for what create function should take in
   private def event_params
