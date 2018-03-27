@@ -2,7 +2,8 @@
 <h2><%= @event.title %></h2>
 
 <p>
-  <%= @event.start_time %>
+  <%= @event.start_time :title %>
+  <%= @event.start_time :body %>
   <%= @event.start_meridian %>
 </p>
 

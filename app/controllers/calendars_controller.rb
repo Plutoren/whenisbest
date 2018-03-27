@@ -1,9 +1,6 @@
 class CalendarsController < ApplicationController
   # this function is for the root page
   
-  
-  
-  
   def index
     @events = Event.all
     @days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
