@@ -2,10 +2,16 @@
 <h2><%= @event.title %></h2>
 
 <p>
-  <%= @event.start_time %>
+  <%= @event.start_time %><br />
   <%= @event.start_meridian %>
 </p>
 
+<%= form_for @event do |e| %>
+  <p>
+    <%= e.label :title %><br />
+	<%= e.text_field :title %><br />
+  </p>
+<% end %>
 
 <p>
   <%= @event.end_time %>
