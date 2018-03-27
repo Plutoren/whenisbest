@@ -1,22 +1,21 @@
 <!-- Shows in events/id#/edit -->
 <h2><%= @event.title %></h2>
 
-<p>
-  <%= @event.start_time %><br />
-  <%= @event.start_meridian %>
-</p>
-
 <%= form_for @event do |e| %>
   <p>
     <%= e.label :title %><br />
 	<%= e.text_field :title %><br />
   </p>
+  <p>
+    <%= e.label :start_time %><br />
+	<%= e.text_area :start_time %><br />
+  </p>
+  <p>
+    <%= e.label :end_time %><br />
+	<%= e.text_area :end_time %><br />
+  </p>
 <% end %>
 
-<p>
-  <%= @event.end_time %>
-  <%= @event.end_meridian %>
-</p>
 
 <button>
   <%= link_to "Save", event_path(@event),
