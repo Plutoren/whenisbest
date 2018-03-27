@@ -13,7 +13,13 @@ class EventsController < ApplicationController
     # redirects to main page.
     redirect_to :controller => 'calendars', action: 'index'
   end
-
+  
+  def save
+	#save a button
+	@event.save
+    # redirects to main page.
+    redirect_to :controller => 'calendars', action: 'index'
+  end
   # this function allows to delete events.
   # this function shows in the events/id#/edit.
   def edit
