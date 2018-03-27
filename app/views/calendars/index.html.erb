@@ -9,13 +9,8 @@
 
     <li><%= link_to "Add Event", new_event_path %> </li>
 	
+	<li><%= link_to "Add Week", new_event_path %> </li>
 	
-	<%= form_for @calendars do |f| %>
-		<p>
-			<%= f.addweek "Add Week" %>
-		<p>
-	<% end %>
-
     <h3> Current Time </h3>
 
     <%= date_today = Date.today  + (@week * 7)%>
