@@ -10,7 +10,11 @@
     <li><%= link_to "Add Event", new_event_path %> </li>
 	
 	
-    <%= @calendars.addweek "Add Week" %>
+	<%= form_for @calendars do |f| %>
+		<p>
+			<%= f.addweek "Add Week" %>
+		<p>
+	<% end %>
 
     <h3> Current Time </h3>
 
