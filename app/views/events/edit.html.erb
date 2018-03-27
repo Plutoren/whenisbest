@@ -3,9 +3,10 @@
 
 <p>
   <%= @event.start_time :title %>
-  <%= @event.start_time :body %>
+  <%= @event.text_area :body %><br />
   <%= @event.start_meridian %>
 </p>
+
 
 <p>
   <%= @event.end_time %>
