@@ -21,17 +21,6 @@
 
     <h3>These are the events submitted so far</h3>
 
-    <% @events.each do |event|%>
-      <h3>
-        <%= link_to event.title, edit_event_path(event) %>
-      </h3>
-      <p>
-        <%=event.start_time%>
-        <%=event.end_time%>
-      </p>
-    <%end%>
-
-
       <!-- Calendar starts here -->
 
       <div style = "width: 100%; height:100%">
