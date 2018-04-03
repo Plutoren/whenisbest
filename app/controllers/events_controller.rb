@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 	
     @event = Event.find(params[:id])
 	if @event.update_attribute(params[:event])
-		redirect_to event, :notice => "Updated"
+		redirect_to :controller => 'calendars', action: 'index'
 	else
 		render "edit"
 	end
