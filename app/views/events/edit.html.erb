@@ -26,7 +26,13 @@
     <%= f.submit "Saved" %><br />
   </p>
 <% end %>
-<%= link_to "Go Back", event_path(@event) %>
+
+
+<button>
+  <%= link_to "Save", event_path(@event),
+                          method: :save %>
+</button>
+
 <button>
   <%= link_to "Delete", event_path(@event),
                           method: :delete,
