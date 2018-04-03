@@ -20,7 +20,6 @@ class EventsController < ApplicationController
 	#save a button
 	@event.save
     # redirects to main page.
-    redirect_to :controller => 'calendars'
   end
   
   # this function allows to delete events.
