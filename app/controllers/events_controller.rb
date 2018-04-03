@@ -19,6 +19,10 @@ class EventsController < ApplicationController
     redirect_to :controller => 'calendars', action: 'index'
   end
   
+  def show
+    @event = Event.find(params[:id])
+  end
+  
   def save
   
     @event = Event.find(params[:id])
