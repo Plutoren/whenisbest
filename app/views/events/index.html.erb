@@ -1,6 +1,6 @@
 <h1>Event Viewer</h1>
 
 <% @events.each do |event| %>
-	<h3><%= event.title %></h3>
+	<h3><%= link_to event.title, post.id %></h3>
 	<p><%= event.start_time %></p>
 <% end %>
