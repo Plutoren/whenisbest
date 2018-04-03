@@ -31,6 +31,7 @@ class EventsController < ApplicationController
 	else
 		render "edit"
 	end
+  end
   
   def save
   
