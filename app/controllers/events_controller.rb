@@ -3,6 +3,10 @@ class EventsController < ApplicationController
   def new
   end
   
+  def index
+  
+  end
+  
   # this function is for creating new event based on Event Model.
   def create
     # creates the event.
@@ -36,7 +40,7 @@ class EventsController < ApplicationController
     redirect_to :controller => 'calendars', action: 'index'
   end
   
-
+  
   # this function takes requirements for what create function should take in
   private def event_params
     params.require(:event).permit(:title, :start_time, :start_meridian, :end_time, :end_meridian)
