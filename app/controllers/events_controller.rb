@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   end
   
   def index
-  
+    @events = Event.all
+	
   end
   
   # this function is for creating new event based on Event Model.

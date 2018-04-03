@@ -1,3 +1,6 @@
 <h1>Event Viewer</h1>
-<h3>Sample View</h3>
-<p>This is a test</p>
+
+<% @events.each do |event| %>
+	<h3><%= event.title %></h3>
+	<p><%= event.start_time %></p>
+<% end %>
