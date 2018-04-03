@@ -1,38 +1,32 @@
 <!-- Shows in events/id#/edit -->
 <h2><%= @event.title %></h2>
 
-<%= form_for @event do |e| %>
+<%= form_for @event do |f| %>
   <p>
-    <%= e.label :title %><br />
-	<%= e.text_field :title %><br />
+    <%= f.label :title %><br />
+	<%= f.text_field :title %><br />
   </p>
   <p>
-    <%= e.label :start_time %><br />
-	<%= e.text_area :start_time %><br />
+    <%= f.label :start_time %><br />
+	<%= f.text_area :start_time %><br />
   </p>
   <p>
-    <%= e.label :start_meridian %><br />
-	<%= e.text_area :start_meridian %><br />
+    <%= f.label :start_meridian %><br />
+	<%= f.text_area :start_meridian %><br />
   </p>
   <p>
-    <%= e.label :end_time %><br />
-	<%= e.text_area :end_time %><br />
+    <%= f.label :end_time %><br />
+	<%= f.text_area :end_time %><br />
   </p>
   <p>
-    <%= e.label :end_meridian %><br />
-	<%= e.text_area :end_meridian %><br />
+    <%= f.label :end_meridian %><br />
+	<%= f.text_area :end_meridian %><br />
   </p>
   <p>
-    <%= e.submit "Saved" %><br />
+    <%= f.submit "Saved" %><br />
   </p>
 <% end %>
-
-
-<button>
-  <%= link_to "Save", event_path(@event),
-                          method: :save %>
-</button>
-
+<%= link_to "Go Back", event_path %>
 <button>
   <%= link_to "Delete", event_path(@event),
                           method: :delete,
