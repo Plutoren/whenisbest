@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   # this function shows the events/new page.
   def new
+	@event = Event.new
+	
   end
   
   def index
@@ -14,9 +16,12 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     # save to database.
-    @event.save
+    if @event.save
     # redirects to main page.
-    redirect_to :controller => 'calendars', action: 'index'
+		redirect_to event_path, :notice => "Your event has been saved"
+	else
+		render "new"
+	end
   end
   
   def show
