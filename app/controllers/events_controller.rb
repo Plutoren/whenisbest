@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
-  # this function shows the events/new page.
-  def new
-	@event = Event.new
-	
-  end
   
   def index
     @events = Event.all
+  end
+  def show
+    @event = Event.find(params[:id])
+  end
+  
+  # this function shows the events/new page.
+  def new
+	@event = Event.new
 	
   end
   
@@ -17,15 +20,11 @@ class EventsController < ApplicationController
 
     # save to database.
     if @event.save
-    # redirects to main page.
+		# redirects to events page.
 		redirect_to events_path, :notice => "Your event has been saved"
 	else
 		render "new"
 	end
-  end
-  
-  def show
-    @event = Event.find(params[:id])
   end
   
   # this function shows in the events/id#/edit.
@@ -44,16 +43,6 @@ class EventsController < ApplicationController
 		render "edit"
 	end
   end
-  
-  def save
-  
-    @event = Event.find(params[:id])
-	#save a button
-	@event.save
-    # redirects to main page.
-  end
-  
-
 
   # this function goes with edit and destroys event.
   def destroy
