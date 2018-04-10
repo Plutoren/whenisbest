@@ -23,6 +23,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
   
+  # this function shows in the events/id#/edit.
+  def edit
+    @event = Event.find(params[:id])
+  end
+  
   def update
 	
     @event = Event.find(params[:id])
@@ -41,11 +46,7 @@ class EventsController < ApplicationController
     # redirects to main page.
   end
   
-  # this function allows to delete events.
-  # this function shows in the events/id#/edit.
-  def edit
-    @event = Event.find(params[:id])
-  end
+
 
   # this function goes with edit and destroys event.
   def destroy
