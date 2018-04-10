@@ -1,4 +1,4 @@
 <h1><%= @event.title %></h1>
-<p><%= @event.start_time %></p> 
-<p><%= @event.end_time %></p>
+<small><%= @event.start_time.strftime("%b %d. %Y") %></small> 
+<p><%= @event.end_time.strftime("%b %d. %Y") %></p>
 <%= link_to "edit", edit_event_path %>

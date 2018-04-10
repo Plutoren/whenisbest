@@ -3,4 +3,5 @@
 <% @events.each do |event| %>
 	<h3><%= link_to event.title, event %></h3>
 	<p><%= event.start_time %></p>
+	<p><%= event.end_time %></p>
 <% end %>
