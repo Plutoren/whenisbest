@@ -8,7 +8,7 @@
   </p>
 
   <p>
-    <%=f.label :start_time%>
+    <%=f.label :start_time.strftime("%b %d. %Y %I:%M %p")%>
     <%=f.text_field :start_time%>
   </p>
 
@@ -18,7 +18,7 @@
   </p>
 
   <p>
-    <%=f.label :end_time%>
+    <%=f.label :end_time.strftime("%b %d. %Y %I:%M %p")%>
     <%=f.text_field :end_time%>
   </p>
 
