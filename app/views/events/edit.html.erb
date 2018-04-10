@@ -1,5 +1,5 @@
 <!-- Shows in events/id#/edit -->
-<h2><%= @event.title %></h2>
+<h2>Edit: <%= @event.title %></h2>
 
 <%= form_for @event do |f| %>
   <p>
@@ -8,7 +8,7 @@
   </p>
 
   <p>
-    <%=f.label :start_time.strftime("%b %d. %Y %I:%M %p")%>
+    <%=f.label :start_time%>
     <%=f.text_field :start_time%>
   </p>
 
@@ -18,7 +18,7 @@
   </p>
 
   <p>
-    <%=f.label :end_time.strftime("%b %d. %Y %I:%M %p")%>
+    <%=f.label :end_time%>
     <%=f.text_field :end_time%>
   </p>
 
