@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     # save to database.
     if @event.save
     # redirects to main page.
-		redirect_to event_path, :notice => "Your event has been saved"
+		redirect_to events_path, :notice => "Your event has been saved"
 	else
 		render "new"
 	end
